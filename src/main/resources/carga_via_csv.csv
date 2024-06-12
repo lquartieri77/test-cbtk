@@ -1,0 +1,6 @@
+data_vencimento, data_pagamento, valor, descricao, situacao
+"2024-06-11","2024-06-11",55.40,"descricao via csv1", "PENDENTE DE PAGAMENTO"
+"2024-06-12","2024-06-12",51.10,"descricao via csv2", "PENDENTE DE PAGAMENTO"
+"2024-06-13","2024-06-12",52.70,"descricao via csv3", "PENDENTE DE PAGAMENTO"
+"2024-06-14","2024-06-12",55.40,"descricao via csv4", "PENDENTE DE PAGAMENTO"
+"2024-06-15","2024-06-12",55.40,"descricao via csv5", "PENDENTE DE PAGAMENTO"

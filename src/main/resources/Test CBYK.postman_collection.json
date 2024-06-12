@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "d8a29a6d-974a-4c3c-872f-23357780fb88",
+		"name": "Test CBYK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11226209"
+	},
+	"item": [
+		{
+			"name": "ListaPaginada",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/conta?pageNumber=1&qtdElementos=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"conta"
+					],
+					"query": [
+						{
+							"key": "pageNumber",
+							"value": "1"
+						},
+						{
+							"key": "qtdElementos",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuscaContaPorId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/conta/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"conta",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateConta",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": null,\r\n  \"dataVencimento\" : \"2024-06-10\",\r\n  \"dataPagamento\" : \"2024-06-15\",\r\n  \"valor\" : 15.80,\r\n  \"descricao\" : \"descricao bla bla bla\",\r\n  \"situacao\" : \"ATIVO\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/conta",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"conta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateConta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": null,\r\n  \"dataVencimento\" : \"2024-06-10\",\r\n  \"dataPagamento\" : \"2024-06-15\",\r\n  \"valor\" : 15.80,\r\n  \"descricao\" : \"atualizando registro com id 2\",\r\n  \"situacao\" : \"ATIVO\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/conta/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"conta",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteConta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/conta/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"conta",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PagamentoConta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/pagamento/4",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pagamento",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CargaViaArquivo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Quartieri/Documents/dev/api/src/main/resources/carga_via_csv.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/conta/upload",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"conta",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
