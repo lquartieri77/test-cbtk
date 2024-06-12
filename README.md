@@ -11,7 +11,7 @@ O projeto é uma aplicação back-end com objetivo de disponibilizar uma APIs ut
 
 Primeiramente, faça o clone do repositório:
 ```
-https://github.com/emmanuelneri/productivity-with-spring.git
+https://github.com/lquartieri77/test-cbtk.git
 ```
 Feito isso, acesse o projeto:
 ```
