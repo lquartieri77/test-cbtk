@@ -13,11 +13,7 @@ Primeiramente, faça o clone do repositório:
 ```
 https://github.com/lquartieri77/test-cbtk.git
 ```
-Feito isso, acesse o projeto:
-```
-cd api
-```
-Neste momento é preciso compilar o código e baixar as dependências do projeto:
+Acesse o diretorio do projeto, neste momento é preciso compilar/buildar o código e baixar as dependências do projeto (neste ponto os testes também irão rodar):
 ```
 mvn clean install
 ```
