@@ -60,9 +60,14 @@ Criar nosso jar (neste ponto a aplicacao gera o jar, sobe, conecta no banco e ro
 ```
 mvn clean install
 ```
-Depois disso já teremos nosso jar criado, assim podemos derrubar o container para subir tudo, agora via compose
+Na pasta raiz temos um Dockerfile para cria a imagem com nossa aplicaçao, vamos gerar a imagem com o seguinte comando 
+```
+docker build .
+```
 
-Temos um Dockerfile e um docker-compose.yaml na pasta raiz da aplicacao, que esta sendo usado pelo compose para subir nossa aplicacao, assim basta subir com o seguite comando:
+Depois disso já teremos nossa imagem criada com a aplicação, agora vamos subir tudo, agora via compose
+
+Na pasta raiz também temos um docker-compose.yaml, assim basta subir com o seguite comando:
 ```
 docker-compose up
 ```
