@@ -62,7 +62,7 @@ mvn clean install
 ```
 Depois disso já teremos nosso jar criado, assim podemos derrubar o container para subir tudo, agora via compose
 
-Temos um Dockerfile na pasta raiz da aplicacao, que esta sendo usado pelo compose para subir nossa aplicacao, assim basta subir com o seguite comando:
+Temos um Dockerfile e um docker-compose.yaml na pasta raiz da aplicacao, que esta sendo usado pelo compose para subir nossa aplicacao, assim basta subir com o seguite comando:
 ```
 docker-compose up
 ```
