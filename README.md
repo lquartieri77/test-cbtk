@@ -46,17 +46,11 @@ http://localhost:8080/monitoring
 Antes de rodar a aplicação é preciso garantir que as seguintes dependências estejam corretamente instaladas:
 
 ```
-Java 17
 Docker 17.06.0 
 Maven 3.3.3 
 ```
 
 ## Preparando ambiente
-
-Subir um container com o postgres 
-```
-docker run -p 5432:5432 -e POSTGRES_PASSWORD=1234 postgres
-```
 
 Criar nosso jar (neste ponto a aplicacao gera o jar, sobe, conecta no banco e roda os testes)
 ```
