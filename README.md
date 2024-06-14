@@ -17,6 +17,11 @@ Acesse o diretorio do projeto, neste momento é preciso compilar/buildar o códi
 ```
 mvn clean install
 ```
+Agora vamos subir o banco de dados via docker, para esta aplicação usei Postgres: 
+```
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=1234 postgres
+```
+
 Finalizado esse passo, vamos iniciar a aplicação:
 ```
 mvn spring-boot:run
