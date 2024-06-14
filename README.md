@@ -13,15 +13,16 @@ Primeiramente, faça o clone do repositório:
 ```
 https://github.com/lquartieri77/test-cbtk.git
 ```
-Acesse o diretorio do projeto, neste momento é preciso compilar/buildar o código e baixar as dependências do projeto (neste ponto os testes também irão rodar):
-```
-mvn clean install
-```
-Agora vamos subir o banco de dados via docker, para esta aplicação usei Postgres: 
+
+Neste ponto, ja podemos subir o banco de dados via docker, para esta aplicação usei Postgres: 
 ```
 docker run -p 5432:5432 -e POSTGRES_PASSWORD=1234 postgres
 ```
 
+Acesse o diretorio do projeto, neste momento é preciso compilar/buildar o código e baixar as dependências do projeto (neste ponto os testes também irão rodar):
+```
+mvn clean install
+```
 Finalizado esse passo, vamos iniciar a aplicação:
 ```
 mvn spring-boot:run
