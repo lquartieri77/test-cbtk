@@ -5,6 +5,8 @@ import com.leo.teste.api.dto.ContaDTO;
 import com.leo.teste.api.helper.CSVHelper;
 import com.leo.teste.api.service.CSVService;
 import com.leo.teste.api.service.ContaService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -22,6 +24,7 @@ import java.util.Map;
 @CrossOrigin
 public class ContaController {
 
+    Logger logger = LoggerFactory.getLogger(ContaController.class);
     @Autowired
     private ContaService contaService;
 
@@ -30,18 +33,29 @@ public class ContaController {
 
     @PostMapping
     public ResponseEntity<ContaDTO> createConta(@RequestBody ContaDTO conta){
+        logger.info("Post - metodo createConta");
+        logger.debug("DTO = "+ conta.toString());
+
         ContaDTO savedUser = contaService.createConta(conta);
+
+        logger.debug("Salvo com sucesso");
+
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
     @GetMapping("{id}")
     public ResponseEntity<ContaDTO> getContaById(@PathVariable("id") Long contaId){
+        logger.info("Get - metodo getContaById");
+        logger.debug("ID = "+ contaId);
+
         ContaDTO conta = contaService.getContaById(contaId);
         return new ResponseEntity<>(conta, HttpStatus.OK);
     }
 
     @GetMapping
     public ResponseEntity<Map<String, Object>> getAllContas(@RequestParam(defaultValue = "0") Integer pageNumber, @RequestParam(defaultValue = "5") Integer qtdElementos){
+        logger.info("Get - metodo getAllContas");
+
         Page<Conta> retornoPaginado = contaService.getAllContas(pageNumber,qtdElementos);
         List<Conta> contas = retornoPaginado.getContent();
         Map<String, Object> response = new HashMap<>();
@@ -56,20 +70,35 @@ public class ContaController {
 
     @PutMapping("{id}")
     public ResponseEntity<ContaDTO> updateConta(@PathVariable("id") Long contaId, @RequestBody ContaDTO conta){
+        logger.info("Put - metodo updateConta");
+        logger.debug("ID = "+ contaId + " - DTO " + conta.toString());
+
         conta.setId(contaId);
         ContaDTO updatedConta = contaService.updateConta(conta);
+
+        logger.debug("Salvo com sucesso");
+
         return new ResponseEntity<>(updatedConta, HttpStatus.OK);
     }
 
 
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteConta(@PathVariable("id") Long contaId){
+        logger.info("Delete - metodo deleteConta");
+        logger.debug("ID = "+ contaId);
+
         contaService.deleteConta(contaId);
+
+        logger.debug("Excluido com sucesso");
+
         return new ResponseEntity<>("Conta excluida com sucesso!", HttpStatus.OK);
     }
 
     @PutMapping("/pagamento/{id}")
     public ResponseEntity<Map<String, Object>> pagarConta(@PathVariable("id") Long id){
+        logger.info("Put - metodo pagarConta");
+        logger.debug("ID = "+ id);
+
         ContaDTO conta = contaService.getContaById(id);
         conta.setSituacao("PAGAMENTO REALIZADO");
         conta.setDataPagamento(LocalDateTime.now().toLocalDate());
@@ -77,12 +106,14 @@ public class ContaController {
         Map<String, Object> response = new HashMap<>();
         response.put("conta", updatedConta);
         response.put("situacao", "Pagamento realizado com sucesso!");
-
+        logger.debug("Paga com sucesso");
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+        logger.info("Post - metodo uploadFile");
+
         String message = "";
 
         if (CSVHelper.hasCSVFormat(file)) {
